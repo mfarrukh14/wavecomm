@@ -20,13 +20,13 @@ export default function MainNavigation() {
   return (
     <Disclosure
       as="nav"
-      className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 px-4 py-4"
+      className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 px-2 sm:px-4 py-4 w-[95%] sm:w-auto"
     >
       <div className="backdrop-blur-md bg-blue-200/15 rounded-2xl shadow-lg">
-        <Container>
-          <div className="relative flex h-16 items-center">
+        <Container className="w-full">
+          <div className="relative flex h-16 items-center justify-between">
             {/* Mobile menu button */}
-            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden z-10">
               <DisclosureButton className="group relative inline-flex items-center justify-center rounded-lg p-2 text-gray-400 hover:bg-white/10 hover:text-white focus:outline-none">
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon className="block h-6 w-6 group-data-open:hidden" aria-hidden="true" />
@@ -35,13 +35,18 @@ export default function MainNavigation() {
             </div>
 
             {/* Logo + desktop links */}
-            <div className="flex flex-1 items-center justify-between">
+            <div className="flex flex-1 items-center sm:justify-between justify-center">
               <div className="flex shrink-0 items-center">
-                <span className="text-white text-xl mr-8 font-thin tracking-wider">
+                <img
+                  src="/images/logo.png"
+                  alt="WaveComm Logo"
+                  className="h-14 w-auto"
+                />
+                <span className="text-white text-xl font-thin tracking-wider">
                   WAVECOMM
                 </span>
               </div>
-              <div className="hidden sm:block flex-1">
+              <div className="hidden sm:block flex-1 ml-8">
                 <div className="flex justify-center space-x-2">
                   {navigation.map((item) => (
                     <a
@@ -66,7 +71,7 @@ export default function MainNavigation() {
       </div>
 
       {/* Mobile panel */}
-      <DisclosurePanel className="sm:hidden mt-2">
+      <DisclosurePanel className="sm:hidden mt-2 w-full">
         <div className="backdrop-blur-md bg-black/20 rounded-xl border border-white/10 shadow-lg">
           <Container>
             <div className="space-y-1 py-2">

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import React from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -15,7 +15,7 @@ export default function BackgroundParticles() {
   }, []);
 
   const particlesLoaded = (container) => {
-    console.log(container);
+    // Removed console.log
   };
 
   const options = useMemo(
@@ -92,14 +92,21 @@ export default function BackgroundParticles() {
     [],
   );
 
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        className="absolute inset-0 w-full h-full"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
+      <div className="relative w-full h-full">
+        <Particles
+          id="tsparticles"
+          className="absolute inset-0 w-full h-full"
+          particlesLoaded={particlesLoaded}
+          options={options}
+          init={particlesInit}
+        />
+      </div>
     );
   }
 

@@ -79,7 +79,7 @@ export const InfiniteCarousalEffect = ({
               <img
                 src={item.logo}
                 alt={item.name}
-                className="w-full h-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                className="w-full h-auto object-contain filter grayscale brightness-200 contrast-200 opacity-70 hover:opacity-100 hover:brightness-125 transition-all duration-300"
               />
             </div>
           </li>

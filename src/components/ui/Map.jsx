@@ -10,6 +10,8 @@ const pinIcon = new L.Icon({
   popupAnchor: [0, -40],
 });
 
+const STADIA_API_KEY = "3dae30f1-0657-4eb4-b611-418403c90f54";
+
 const Map = () => {
   const position = [33.6995, 73.0366];
 
@@ -29,7 +31,8 @@ const Map = () => {
           }}
         >
           <TileLayer
-            url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+            url={`https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png?api_key=${STADIA_API_KEY}`}
+            maxZoom={20}
           />
           <Marker position={position} icon={pinIcon}>
             <Popup>

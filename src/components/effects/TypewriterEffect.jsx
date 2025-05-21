@@ -81,7 +81,7 @@ export const TypewriterEffectSmooth = ({
           ease: "linear",
           delay: 1,
         }}>
-        <div className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold whitespace-pre whitespace-nowrap">
+        <div className="text-xl sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold whitespace-pre whitespace-nowrap">
           {wordsArray.map((word, idx) => (
             <div key={`word-${idx}`} className="inline-block">
               {word.text.split("").map((char, index) => (
@@ -103,7 +103,7 @@ export const TypewriterEffectSmooth = ({
           repeat: Infinity,
           repeatType: "reverse",
         }}
-        className={cn("block rounded-sm w-[4px] h-4 sm:h-6 xl:h-12 bg-blue-500", cursorClassName)}
+        className={cn("block rounded-sm w-[4px] h-6 sm:h-6 xl:h-12 bg-blue-500", cursorClassName)}
       />
     </div>
   );
